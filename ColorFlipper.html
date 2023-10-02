@@ -16,6 +16,27 @@
     display : flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    background-color: black;
+    color:white;
+    font-size:40px;
+    border-radius: 15px;
+  }
+  .color{
+    color :aqua;
+    font-size:40px;
+  }
+  .btn-love{
+    margin-top : 5vh;
+    background-color: darkgray;
+    color:white;
+    border-radius: 10px;
+    width:8vw;
+    height:5vh;
+    font-size:1.5vw;
   }
 </style>
 </head>
@@ -36,6 +57,25 @@
   root.style.justifyContent = "center"
   root.style.alignContent = "center"
   console.dir(root)
+  /*색상, 버튼 이벤트*/
+  let hex = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+  let btn = document.getElementById("btn")
+  let color = document.querySelector(".color");
+
+  btn.addEventListener("click", function(){
+    let hexColor = "#"
+    for (let i=0; i<6; i++) {
+      hexColor += hex[getRandomNumber()];
+    }
+    color.textContent = hexColor;
+    document.body.style.backgroundColor = hexColor;
+  })
+
+/* 랜덤 설정*/
+function getRandomNumber(){
+  return Math.floor(Math.random()*hex.length);
+}
+
   </script>
 </body>
 </html>
