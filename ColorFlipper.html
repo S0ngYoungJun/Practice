@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  *{
+    margin:0;
+    padding:0;
+  }
+  .container{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    display : flex;
+    flex-direction: column;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div id="root">
+    <div class="container">
+      <h2>background color : <span class="color"></span></h2>
+      <button class="btn-love" id="btn">click me</button>
+    </div>
+  </div>
+  <script>
+    
+  /* root 설정 */
+  let root = document.getElementById("root")
+  root.style.width = "100vw"
+  root.style.height = "100vh"
+  root.style.display = "flex"
+  root.style.justifyContent = "center"
+  root.style.alignContent = "center"
+  console.dir(root)
+  </script>
+</body>
+</html>
