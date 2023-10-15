@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    #root{
+      border:5px solid aqua;
+      width: 80vw;
+      height: 40vh;
+      max-width: 80rem;
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-top: 4rem;
+    }
+    .slide{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: violet;
+      display: grid;
+      place-items: center;
+      transition: all 0.25s ease-in-out;
+    }
+    .slide-img{
+      height:100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="slide">
+      <img src="1.jpg" class="slide-img" alt="">
+    </div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+
+    <div class="btn-box">
+      <button type="button" class="prev"></button>
+      <button type="button" class="next"></button>
+    </div>
+  </div>
+</body>
+</html>
