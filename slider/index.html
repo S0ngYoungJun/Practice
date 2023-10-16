@@ -24,7 +24,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: violet;
+      /* background: violet; */
       display: grid;
       place-items: center;
       transition: all 0.25s ease-in-out;
@@ -33,18 +33,45 @@
       height:100%;
       object-fit: cover;
     }
+    .btn-box{
+      width:10vw;
+      height:15vh;
+      background-color: gray;
+      color:white;
+      display:flex;
+    }
+    @media screen and (min-width: 992px) {
+      #root{
+        height:65vh;
+      }
+    }
+    .slide:nth-child(1){
+      left:0;
+    }
+    .slide:nth-child(2){
+      left:100%;
+    }.slide:nth-child(3){
+      left:200%;
+    }.slide:nth-child(4){
+      left:300%;
+    }
+    .slide:nth-child(5){
+      left:400%;
+    }
+    .slide {
+      transform:translateX(-300%);
+    }
   </style>
 </head>
 <body>
   <div id="root">
     <div class="slide">
-      <img src="1.jpg" class="slide-img" alt="">
+      <img src="1.jpg" class="slide-img" alt=""/>
     </div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-
+    <div class="slide"><img src="2.jpg" class="slide-img" alt=""/></div>
+    <div class="slide"><img src="3.jpg" class="slide-img" alt=""/></div>
+    <div class="slide"><img src="4.jpg" class="slide-img" alt=""/></div>
+    <div class="slide"><img src="5.jpg" class="slide-img" alt=""/></div>
     <div class="btn-box">
       <button type="button" class="prev">prev</button>
       <button type="button" class="next">next</button>
@@ -53,10 +80,41 @@
   <script>
     // 변수선언
     const root = document.getElementById('root')
-    const slide = document.querySelectorAll('.slide');
+    const slides = document.querySelectorAll('.slide');
+    const btn = document.querySelector('button')
     const prev = document.querySelector('.prev')
     const next = document.querySelector('.next')
-    // 
+    /* 슬라이드 넓이 계산해 주기 */
+  const divWidth = slides[0].clientWidth;
+  const sliderWidth = divWidth * slides.length;
+  root.style.width = `${sliderWidth}px`
+  /* 리스너 설치하기 */
+  let currentIdx = 0; // 슬라이드 현재 번호
+  let translate = 0; // 슬라이드 위치 값
+
+
+
+  slides. forEach(function (slide, index){
+    slide.style.left =`${index * 100}%`
+  })
+  // btn.addEventListener('click', moveSlide);
+
+  // function moveSlide(event) {
+  //   event.preventDefault();
+  //   if (event.target.className === 'next') {
+  //     if (currentIdx !== slide.length -1) {
+  //       translate -= liWidth;
+  //       root.style.transform = `translateX(${translate}px)`;
+  //       currentIdx += 1;
+  //     }
+  //   } else if (event.target.className === 'prev') {
+  //       if (currentIdx !== 0) {
+  //         translate += liWidth;
+  //         ro.style.transform = `translateX(${translate}px)`;
+  //         currentIdx -= 1;
+  //       }
+  //     }
+  // }
   </script>
 </body>
 </html>
