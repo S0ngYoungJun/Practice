@@ -19,6 +19,7 @@
       border-radius: 0.5rem;
       overflow: hidden;
       margin-top: 4rem;
+      margin-left:10vw
     }
     .slide{
       position: absolute;
@@ -28,17 +29,32 @@
       display: grid;
       place-items: center;
       transition: all 0.25s ease-in-out;
+      object-fit: scale-down;
+      
     }
     .slide-img{
+      width:100%;
       height:100%;
       object-fit: cover;
     }
     .btn-box{
       width:10vw;
-      height:15vh;
-      background-color: gray;
-      color:white;
+      height:10vh;
       display:flex;
+      margin-left:45vw;
+
+    }
+    .prev{
+      width:5vw;
+      height:10vh;
+      background-color: black;
+      color:white;
+    }
+    .next{
+      width:5vw;
+      height:10vh;
+      background-color: black;
+      color:white;
     }
     @media screen and (min-width: 992px) {
       #root{
@@ -49,17 +65,17 @@
       left:0;
     }
     .slide:nth-child(2){
-      left:100%;
+      left:-100%;
     }.slide:nth-child(3){
-      left:200%;
+      left:-200%;
     }.slide:nth-child(4){
-      left:300%;
+      left:-300%;
     }
     .slide:nth-child(5){
-      left:400%;
+      left:-400%;
     }
     .slide {
-      transform:translateX(-300%);
+      transform:translateX(0);
     }
   </style>
 </head>
@@ -89,16 +105,29 @@
   // const sliderWidth = divWidth * slides.length;
   // root.style.width = `${sliderWidth}px`
   // /* 리스너 설치하기 */
-  // let currentIdx = 0; // 슬라이드 현재 번호
-  // let translate = 0; // 슬라이드 위치 값
 
 
 
-  slides. forEach(function (slide, index){
+
+  slides.forEach(function (slide, index){
     slide.style.left =`${index * 100}%`
   })
+  prev.addEventListener("click",function(){
+    if(count>=0){
+    count--
+    carousel()}
+  })
+  next.addEventListener("click",function(){
+    if(count<4){
+    count++
+    carousel()}
+  })
   count=0;
-  next.evend
+  function carousel(){
+    slides.forEach(function(slide){
+      slide.style.transform=`translateX(-${count * 100}%)`
+    })
+  }
   </script>
 </body>
 </html>
