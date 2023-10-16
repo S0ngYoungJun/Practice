@@ -72,10 +72,10 @@
     <div class="slide"><img src="3.jpg" class="slide-img" alt=""/></div>
     <div class="slide"><img src="4.jpg" class="slide-img" alt=""/></div>
     <div class="slide"><img src="5.jpg" class="slide-img" alt=""/></div>
-    <div class="btn-box">
-      <button type="button" class="prev">prev</button>
-      <button type="button" class="next">next</button>
-    </div>
+  </div>
+  <div class="btn-box">
+    <button type="button" class="prev">prev</button>
+    <button type="button" class="next">next</button>
   </div>
   <script>
     // 변수선언
@@ -85,36 +85,20 @@
     const prev = document.querySelector('.prev')
     const next = document.querySelector('.next')
     /* 슬라이드 넓이 계산해 주기 */
-  const divWidth = slides[0].clientWidth;
-  const sliderWidth = divWidth * slides.length;
-  root.style.width = `${sliderWidth}px`
-  /* 리스너 설치하기 */
-  let currentIdx = 0; // 슬라이드 현재 번호
-  let translate = 0; // 슬라이드 위치 값
+  // const divWidth = slides[0].clientWidth;
+  // const sliderWidth = divWidth * slides.length;
+  // root.style.width = `${sliderWidth}px`
+  // /* 리스너 설치하기 */
+  // let currentIdx = 0; // 슬라이드 현재 번호
+  // let translate = 0; // 슬라이드 위치 값
 
 
 
   slides. forEach(function (slide, index){
     slide.style.left =`${index * 100}%`
   })
-  // btn.addEventListener('click', moveSlide);
-
-  // function moveSlide(event) {
-  //   event.preventDefault();
-  //   if (event.target.className === 'next') {
-  //     if (currentIdx !== slide.length -1) {
-  //       translate -= liWidth;
-  //       root.style.transform = `translateX(${translate}px)`;
-  //       currentIdx += 1;
-  //     }
-  //   } else if (event.target.className === 'prev') {
-  //       if (currentIdx !== 0) {
-  //         translate += liWidth;
-  //         ro.style.transform = `translateX(${translate}px)`;
-  //         currentIdx -= 1;
-  //       }
-  //     }
-  // }
+  count=0;
+  next.evend
   </script>
 </body>
 </html>
