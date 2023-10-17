@@ -9,7 +9,7 @@
       let currentSnake = [2,1,0]
       let direction = 1
       let score = 0
-      let speed = 0.9
+      let speed = 0.6
       let intervalTime = 0;
       let interval = 0
 
@@ -18,8 +18,8 @@
         squares[appleIndex].classList.remove('apple')
         clearInterval(interval)
         score=0
-        //랜덤 사과
-        direciton=1
+        randomApple()
+        direction=1
         scoreDisplay.innerText= score
         intervalTime= 1000
         currentSnake= [2,1,0]
@@ -46,7 +46,7 @@
           squares[currentSnake[0]].classList.remove('apple')
           squares[tail].classList.add('snake')
           currentSnake.push(tail)
-          //사과 랜덤
+          randomApple()
           score++
           scoreDisplay.textContent=score
           clearInterval(interval)
@@ -59,7 +59,22 @@
 
       }
     
-
+      function randomApple() {
+    
+        //처음 한번 실행해야 되서, do {} while 반복문을 사용
+        do {
+          
+          //div의 길이(100개)와 0~1의 랜덤숫자를 곱하고, Math.floor로 내림해준다.
+          //그래서 나올 수 있는 수는 0~99
+          appleIndex = Math.floor(Math.random() * squares.length);
+          
+          //사과 인덱스가 snake 클래스를 가지고 있으면 또 실행된다.
+          //결국 snake 클래스를 가지고 있지않은 div를 찾기 위함이다
+        } while(squares[appleIndex].classList.contains('snake'));
+        
+        //나온 위치에 사과를 표시
+        squares[appleIndex].classList.add('apple');
+      }
 
 
 
@@ -75,7 +90,7 @@
         }else if (e.keyCode === 38){
           direction = -width
         }else if (e.keyCode === 37){
-          direction -1
+          direction = -1
         }else if (e.keyCode === 40){
           direction = +width
         }

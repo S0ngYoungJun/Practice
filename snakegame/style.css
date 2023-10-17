@@ -6,14 +6,14 @@
   border-style: solid;
 }
 
-.gird>div{
+.grid div{
   width:20px;
   height:20px;
 }
 
-/* .snake {
-  background-color: d;
-} */
+.snake {
+  background-color: red;
+}
 
 .apple {
   background-color: blueviolet;
